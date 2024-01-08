@@ -1,9 +1,19 @@
 import React from 'react'
+import ProjectCard from './ProjectCard'
+import { v4 as uuidv4 } from 'uuid';
 
-const Projects = () => {
+
+import projectsArray from "./assets/ProjectInfo"
+
+const Projects = ({theme}) => {
+  console.log(theme)
   return (
-    <div>
-      project
+    <div style={{display:"flex", justifyContent:"space-around", flexWrap:"wrap" , paddingTop:"1%", backgroundColor:theme=="light"?"white":"black",alignItems:"center", minHeight:"100vh",  }}>
+     {
+       projectsArray.map((detailsObj  )=>{
+        return <ProjectCard theme={theme} key ={uuidv4()} obj={detailsObj}></ProjectCard>
+       })
+     }
     </div>
   )
 }
